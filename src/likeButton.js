@@ -8,6 +8,7 @@ class LikeButton {
       }
     }
     changeLikeText() {
+       //手动操作DOM
        const likeText = this.el.querySelector('.like-text')
        this.state.isLiked = !this.state.isLiked
        likeText.innerHTML = this.state.isLiked ? '取消' : '点赞'
