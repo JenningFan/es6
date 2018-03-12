@@ -8,8 +8,13 @@ class LikeButton {
       }
     }
     setState(state) {
+      const oldEl = this.el
       this.state = state
       this.el = this.render()
+      if (this.onStateChange) {
+        //执行外部注册的callback(暴露一个钩子函数onStateChange?)
+        this.onStateChange(oldEl, this.el)
+      }
     }
     changeLikeText() {
        this.setState({
