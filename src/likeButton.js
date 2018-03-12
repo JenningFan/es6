@@ -7,17 +7,21 @@ class LikeButton {
         isLiked: false
       }
     }
+    setState(state) {
+      this.state = state
+      this.el = this.render()
+    }
     changeLikeText() {
-       //手动操作DOM
-       const likeText = this.el.querySelector('.like-text')
-       this.state.isLiked = !this.state.isLiked
-       likeText.innerHTML = this.state.isLiked ? '取消' : '点赞'
+       this.setState({
+         isLiked: !this.state.isLiked
+       })
        console.log(this);
     }
     render() {
+      //用JavaScript生成下面这段文档结构
       this.el = createDomFromString(`
         <button id='like-btn'>
-          <span class='like-text'>点赞</span>
+          <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
           <span>👍</span>
         </button>
       `)
