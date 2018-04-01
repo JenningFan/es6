@@ -1,38 +1,24 @@
 import createDomFromString from "./createDomFromString";
+import Component from "./component";
 
-class LikeButton {
+class LikeButton extends Component {
     //类属性在constructor内定义以及初始化
     constructor() {
-      this.state = {
-        isLiked: false
-      }
+      super()
+      this.state = { isLiked: false }
     }
-    setState(state) {
-      const oldEl = this.el
-      this.state = state
-      this.el = this.render()
-      if (this.onStateChange) {
-        //执行外部注册的callback(暴露一个钩子函数onStateChange?)
-        this.onStateChange(oldEl, this.el)
-      }
-    }
-    changeLikeText() {
-       this.setState({
-         isLiked: !this.state.isLiked
-       })
-       console.log(this);
+    onClick() {
+      this.setState({
+        isLiked: !this.state.isLiked
+      })
     }
     render() {
-      //用JavaScript生成下面这段文档结构
-      this.el = createDomFromString(`
-        <button id='like-btn'>
-          <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
-          <span>👍</span>
-        </button>
-      `)
-      //此处如果不用bind(this)，则this不是指向LikeButton的实例，而是指向this.el了，即div element
-      this.el.addEventListener('click', this.changeLikeText.bind(this), false)
-      return this.el
+      return`
+      <button id='like-btn'>
+      <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
+      <span>👍</span>
+      </button>
+      `
     }
 }
 export default LikeButton

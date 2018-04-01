@@ -1,8 +1,10 @@
 // let LikeButton = require("./likeButton");
 import LikeButton from "./likeButton"
+import mount from "./mount"
 
 const wrapper = document.querySelector('.wrapper')
-const likeButton1 = new LikeButton()
+/**
+ const likeButton1 = new LikeButton()
 wrapper.appendChild(likeButton1.render())
 
 const likeButton2 = new LikeButton()
@@ -21,3 +23,6 @@ likeButton.onStateChange = (oldEl, newEl) => {
     }, 2000);
     
 }
+ */
+mount(new LikeButton(), wrapper)
+
