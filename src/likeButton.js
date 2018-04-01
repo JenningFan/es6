@@ -3,8 +3,8 @@ import Component from "./component";
 
 class LikeButton extends Component {
     //类属性在constructor内定义以及初始化
-    constructor() {
-      super()
+    constructor(props) {
+      super(props)
       this.state = { isLiked: false }
     }
     onClick() {
@@ -14,7 +14,7 @@ class LikeButton extends Component {
     }
     render() {
       return`
-      <button id='like-btn'>
+      <button id='like-btn' style="background-color: ${this.props.bgColor}">
       <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
       <span>👍</span>
       </button>

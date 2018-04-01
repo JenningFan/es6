@@ -8,8 +8,9 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: './index.html'
+        contentBase: __dirname,
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [
             { 

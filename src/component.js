@@ -1,6 +1,9 @@
 import createDomFromString from "./createDomFromString";
 
 export default class Component {
+    constructor(props = {}) {
+        this.props = props
+    }
     setState(state) {
         //记录旧的组件
         const oldEl = this.el

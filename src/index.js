@@ -1,6 +1,7 @@
 // let LikeButton = require("./likeButton");
 import LikeButton from "./likeButton"
 import mount from "./mount"
+import RedBlueButton from "./redBlueButton"
 
 const wrapper = document.querySelector('.wrapper')
 /**
@@ -25,4 +26,6 @@ likeButton.onStateChange = (oldEl, newEl) => {
 }
  */
 mount(new LikeButton(), wrapper)
+mount(new LikeButton({ bgColor: 'red' }), wrapper)
+mount(new RedBlueButton(), wrapper)
 
